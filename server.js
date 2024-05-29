@@ -16,6 +16,15 @@ io.on("connection", (socket) => {
     socket.on('disconnect', () => {
         console.log('user disconnected');
     });
+    socket.on("sender-join", (data) => {
+        console.log('emmitted sender-join', data);
+        socket.join(data.uid);
+    });
+    socket.on("receiver-join", (data) => {
+        console.log('emmitted receiver-join', data);
+        socket.join(data.uid);
+        socket.in(data.sender_uid).emit("init", data.uid);
+    });
 });
 
 server.listen(8000);
