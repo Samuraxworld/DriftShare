@@ -17,7 +17,9 @@
                 <a class="navbar-brand" href="index.html">
                     <img src="assets/images/logo.svg" alt="FOI">
                 </a>
-                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
+                    data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -32,7 +34,8 @@
                             <a class="nav-link" href="features.html">Features</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                            <a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">Pages</a>
                             <div class="dropdown-menu" aria-labelledby="pagesMenu">
                                 <a class="dropdown-item" href="blog.html">Blog</a>
                                 <a class="dropdown-item" href="login.html">Login</a>
@@ -59,44 +62,139 @@
                 </div>
             </nav>
             <div class="header-content">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h1>Great app that makes your life awesome</h1>
-                        <p class="text-dark">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement.</p>
-                        <button class="btn btn-primary mb-4">Get Started</button>
-                        <div class="my-2">
-                            <p class="header-app-download-title">GET OUR MOBILE APP</p>
+
+                <section class="contact-form-wrapper">
+                    <div class="form sender-form screen active">
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone" class=" text-success row">
+                                        <span class="col-md-3"></span>
+                                        <span class="col-md-9">ROOM NUMBER <sup>*</sup></span>
+                                    </label>
+                                    <div class="row">
+                                        <div class="col-md-3"></div>
+                                        <div class="text-center col-md-3 mr-1">
+                                            <button id="sender-start-connexion"
+                                                class="btn btn-outline-secondary">Create</button>
+                                        </div>
+                                        <div class="col-md-4 ml-1 div-input" id="join-id">
+                                            <span>635-396-9570</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <button class="btn btn-app-download mr-2"><img src="assets/images/ios.svg" alt="App store"></button>
-                            <button class="btn btn-app-download"><img src="assets/images/android.svg" alt="play store"></button>
+
+                        <div class="row">
+                            <div class="col-md-6"> </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-outline-warning btn-rounded col-md-12">Receive file</button>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <img src="assets/images/app_1.png" alt="app" width="388px" class="img-fluid">
+
+                    <div class="wrapper fs-screen screen active">
+                        <div class="container">
+                            <h1>Upload a file</h1>
+                            <div class="upload-container">
+                                <div class="border-container">
+                                    <div class="icons fa-4x">
+                                        <i class="fas fa-file-image"
+                                            data-fa-transform="shrink-3 down-2 left-6 rotate--45"></i>
+                                        <i class="fas fa-file-alt" data-fa-transform="shrink-2 up-4"></i>
+                                        <i class="fas fa-file-pdf"
+                                            data-fa-transform="shrink-3 down-2 right-6 rotate-45"></i>
+                                    </div>
+                                    <input type="file" id="file-input">
+                                    <p>Drag and drop files here, or
+                                        <a href="#" id="file-browser">browse</a> your computer.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="file-list mt-2">
+                            <div class="container mb-2">
+                                <div class="file-item">
+                                    <div class="row">
+                                        <div class="file-info col-md-6">
+                                            <span class="file-name ml-2">File name</span>
+                                            <span class="file-size mr-2">File size</span>
+                                        </div>
+                                        <div class="file-progress col-md-6">
+                                            <div class="progress-bar"></div>
+                                        </div>
+                                    </div>
+                                    <div class="file-remove">
+                                        <i class="fas fa-times"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container mb-2">
+                                <div class="file-item">
+                                    <div class="file-info">
+                                        <span class="file-name ml-2">File name</span>
+                                        <span class="file-size mr-2">File size</span>
+                                    </div>
+                                    <div class="file-progress">
+                                        <div class="progress-bar"></div>
+                                    </div>
+                                    <div class="file-remove">
+                                        <i class="fas fa-times"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>Great app that makes your life awesome</h1>
+                            <p class="text-dark">He has led a remarkable campaign, defying the traditional mainstream
+                                parties courtesy of his En Marche! movement.</p>
+                            <button class="btn btn-primary mb-4">Get Started</button>
+                            <div class="my-2">
+                                <p class="header-app-download-title">GET OUR MOBILE APP</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-app-download mr-2"><img src="assets/images/ios.svg"
+                                        alt="App store"></button>
+                                <button class="btn btn-app-download"><img src="assets/images/android.svg"
+                                        alt="play store"></button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="assets/images/app_1.png" alt="app" width="388px" class="img-fluid">
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </header>
+    <!--
     <section class="py-5 mb-5">
         <div class="container">
             <h2 class="section-title">Application Features</h2>
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
                     <h5>Secure Data</h5>
-                    <p class="text-dark">No matter what kind of home you have to share, you can increase your earnings.</p>
+                    <p class="text-dark">No matter what kind of home you have to share, you can increase your earnings.
+                    </p>
                     <p class="mb-5"><a href="#!" class="text-primary mb-5">Find out More</a></p>
                     <h5>Fully functional</h5>
-                    <p class="text-dark">No matter what kind of home you have to share, you can increase your earnings.</p>
+                    <p class="text-dark">No matter what kind of home you have to share, you can increase your earnings.
+                    </p>
                     <p class="mb-5"><a href="#!" class="text-primary mb-5">Find out More</a></p>
                 </div>
                 <div class="col-lg-4 mb-3 mb-lg-0">
                     <h5>Live Chat</h5>
-                    <p class="text-dark">No matter what kind of home you have to share, you can increase your earnings.</p>
+                    <p class="text-dark">No matter what kind of home you have to share, you can increase your earnings.
+                    </p>
                     <p class="mb-5"><a href="#!" class="text-primary mb-5">Find out More</a></p>
                     <h5>Powerful dashboard</h5>
-                    <p class="text-dark">No matter what kind of home you have to share, you can increase your earnings.</p>
+                    <p class="text-dark">No matter what kind of home you have to share, you can increase your earnings.
+                    </p>
                     <p class="mb-5"><a href="#!" class="text-primary mb-5">Find out More</a></p>
                 </div>
                 <div class="col-lg-4">
@@ -188,7 +286,9 @@
                 </div>
                 <div class="col-md-6">
                     <h2 class="section-title">Get special offers on the things you love</h2>
-                    <p class="mb-5">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement. For many, however, the campaign has become less about backing Macron and instead about voting against Le Pen, the National Front candidate.</p>
+                    <p class="mb-5">He has led a remarkable campaign, defying the traditional mainstream parties
+                        courtesy of his En Marche! movement. For many, however, the campaign has become less about
+                        backing Macron and instead about voting against Le Pen, the National Front candidate.</p>
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="media landing-feature">
@@ -225,7 +325,8 @@
     <section class="py-5 mb-5">
         <div class="container">
             <h2>Choose the plan that’s right for yor business</h2>
-            <p class="text-muted mb-5">Thank you for your very professional and prompt response. I wished I had found you before </p>
+            <p class="text-muted mb-5">Thank you for your very professional and prompt response. I wished I had found
+                you before </p>
             <div class="row">
                 <div class="col-lg-4 mb-4">
                     <div class="card pricing-card border-warning">
@@ -266,7 +367,8 @@
     <section class="py-5 mb-5">
         <div class="container">
             <h2>Satisfied Users</h2>
-            <p class="text-muted mb-5">Thank you for your very professional and prompt response. I wished I had found you before </p>
+            <p class="text-muted mb-5">Thank you for your very professional and prompt response. I wished I had found
+                you before </p>
             <div class="row">
                 <div class="col-md-4 foi-review mb-5 mb-md-0">
                     <div class="foi-rating">
@@ -277,7 +379,8 @@
                         <span class="fas fa-star checked"></span>
                     </div>
                     <h5 class="foi-review-heading">Great support available</h5>
-                    <p class="foi-review-content">Thank you for your very professional and prompt response. I wished I had found you before I spent money on a competitors theme.</p>
+                    <p class="foi-review-content">Thank you for your very professional and prompt response. I wished I
+                        had found you before I spent money on a competitors theme.</p>
                     <div class="media foi-review-user">
                         <img src="assets/images/avatar/avatar_11.jpg" alt="user" class="avatar">
                         <div class="media-body">
@@ -296,7 +399,8 @@
                         <span class="fas fa-star checked"></span>
                     </div>
                     <h5 class="foi-review-heading">Great support available</h5>
-                    <p class="foi-review-content">Thank you for your very professional and prompt response. I wished I had found you before I spent money on a competitors theme.</p>
+                    <p class="foi-review-content">Thank you for your very professional and prompt response. I wished I
+                        had found you before I spent money on a competitors theme.</p>
                     <div class="media foi-review-user">
                         <img src="assets/images/avatar/avatar_12.jpg" alt="user" class="avatar">
                         <div class="media-body">
@@ -315,7 +419,8 @@
                         <span class="fas fa-star checked"></span>
                     </div>
                     <h5 class="foi-review-heading">Great support available</h5>
-                    <p class="foi-review-content">Thank you for your very professional and prompt response. I wished I had found you before I spent money on a competitors theme.</p>
+                    <p class="foi-review-content">Thank you for your very professional and prompt response. I wished I
+                        had found you before I spent money on a competitors theme.</p>
                     <div class="media foi-review-user">
                         <img src="assets/images/avatar/avatar_13.jpg" alt="user" class="avatar">
                         <div class="media-body">
@@ -342,19 +447,24 @@
                         </div>
                         <div id="faqOneCollapse" class="collapse" aria-labelledby="faqOneTitle">
                             <div class="card-body">
-                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever
+                                    since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card mb-3 landing-faq-card">
                         <div class="card-header bg-white" id="faqTwoTitle">
                             <a href="#faqTwoCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                <h6 class="mb-0">Why should I use Foi app?</h6> <i class="far fa-plus-square ml-auto"></i>
+                                <h6 class="mb-0">Why should I use Foi app?</h6> <i
+                                    class="far fa-plus-square ml-auto"></i>
                             </a>
                         </div>
                         <div id="faqTwoCollapse" class="collapse" aria-labelledby="faqTwoTitle">
                             <div class="card-body">
-                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever
+                                    since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book.</p>
                             </div>
                         </div>
                     </div>
@@ -366,7 +476,9 @@
                         </div>
                         <div id="faqThreeCollapse" class="collapse" aria-labelledby="faqThreeTitle">
                             <div class="card-body">
-                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever
+                                    since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book.</p>
                             </div>
                         </div>
                     </div>
@@ -375,36 +487,45 @@
                     <div class="card mb-3 landing-faq-card">
                         <div class="card-header bg-white" id="faqFourTitle">
                             <a href="#faqFourCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                <h6 class="mb-0">Who will see my updates?</h6> <i class="far fa-plus-square ml-auto"></i>
+                                <h6 class="mb-0">Who will see my updates?</h6> <i
+                                    class="far fa-plus-square ml-auto"></i>
                             </a>
                         </div>
                         <div id="faqFourCollapse" class="collapse" aria-labelledby="faqFourTitle">
                             <div class="card-body">
-                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever
+                                    since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card mb-3 landing-faq-card">
                         <div class="card-header bg-white" id="faqFiveTitle">
                             <a href="#faqFiveCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                <h6 class="mb-0">Can people see my connections?</h6> <i class="far fa-plus-square ml-auto"></i>
+                                <h6 class="mb-0">Can people see my connections?</h6> <i
+                                    class="far fa-plus-square ml-auto"></i>
                             </a>
                         </div>
                         <div id="faqFiveCollapse" class="collapse" aria-labelledby="faqFiveTitle">
                             <div class="card-body">
-                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever
+                                    since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card mb-3 landing-faq-card">
                         <div class="card-header bg-white" id="faqSixTitle">
                             <a href="#faqSixCollapse" class="d-flex align-items-center" data-toggle="collapse">
-                                <h6 class="mb-0">Being a user, what all rights I have?</h6> <i class="far fa-plus-square ml-auto"></i>
+                                <h6 class="mb-0">Being a user, what all rights I have?</h6> <i
+                                    class="far fa-plus-square ml-auto"></i>
                             </a>
                         </div>
                         <div id="faqSixCollapse" class="collapse" aria-labelledby="faqSixTitle">
                             <div class="card-body">
-                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                                <p class="mb-0 text-gray">Lorem Ipsum has been the industry's standard dummy text ever
+                                    since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                                    make a type specimen book.</p>
                             </div>
                         </div>
                     </div>
@@ -412,6 +533,7 @@
             </div>
         </div>
     </section>
+    -->
     <footer class="foi-footer text-white">
         <div class="container">
             <div class="row footer-content">
@@ -429,8 +551,10 @@
                     </div>
                     <p class="font-os font-weight-semibold mb3">Get our mobile app</p>
                     <div>
-                        <button class="btn btn-app-download mr-2"><img src="assets/images/ios.svg" alt="App store"></button>
-                        <button class="btn btn-app-download"><img src="assets/images/android.svg" alt="play store"></button>
+                        <button class="btn btn-app-download mr-2"><img src="assets/images/ios.svg"
+                                alt="App store"></button>
+                        <button class="btn btn-app-download"><img src="assets/images/android.svg"
+                                alt="play store"></button>
                     </div>
                 </div>
                 <div class="col-md-3 mt-3 mt-md-0">
@@ -464,7 +588,8 @@
                                 <a href="#!" class="nav-link">Services</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#!" class="nav-link">Careers <span class="badge badge-pill badge-secondary ml-3">Hiring</span></a>
+                                <a href="#!" class="nav-link">Careers <span
+                                        class="badge badge-pill badge-secondary ml-3">Hiring</span></a>
                             </li>
                             <li class="nav-item">
                                 <a href="#!" class="nav-link">Blog</a>
@@ -477,7 +602,8 @@
                 </div>
                 <div class="col-md-3 mt-3 mt-md-0">
                     <p>
-                        &copy; foi. 2020 <a href="https://www.bootstrapdash.com" target="_blank" rel="noopener noreferrer" class="text-reset">BootstrapDash</a>.
+                        &copy; foi. 2020 <a href="https://www.bootstrapdash.com" target="_blank"
+                            rel="noopener noreferrer" class="text-reset">BootstrapDash</a>.
                     </p>
                     <p>All rights reserved.</p>
                     <nav class="social-menu">
@@ -490,6 +616,7 @@
             </div>
         </div>
     </footer>
+    <script src="assets/js/style.js"></script>
     <script src="assets/vendors/jquery/jquery.min.js"></script>
     <script src="assets/vendors/popper.js/popper.min.js"></script>
     <script src="assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
