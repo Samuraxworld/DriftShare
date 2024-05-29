@@ -1,7 +1,7 @@
 {
-  "name": "foi-app-landing-page",
+  "name": "DriftShare",
   "version": "1.0.0",
-  "description": "Bootstrap 4 based FOI App Landing Page",
+  "description": "Next Sharing Generation",
   "main": "index.html",
   "scripts": {
     "start": "gulp watch",
@@ -9,15 +9,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "bootstrap4",
-    "lead-ui",
-    "design-kit",
-    "ui-kit",
-    "lead-ui-kit",
-    "lead-bs4-ui-kit"
+    "DriftShare",
+    "temp share",
+    "online share",
+    "file share",
+    "sharing file"
   ],
-  "author": "Bootstrapdash",
-  "license": "Bootstrapdash Licence<https://www.BootstrapDash.com/license/>",
+  "author": "Espoupou",
+  "license": "",
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "del": "^5.1.0",
@@ -31,7 +30,9 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "bootstrap": "^4.4.1",
+    "express": "^4.19.2",
     "jquery": "^3.4.1",
-    "popper.js": "^1.16.1"
+    "popper.js": "^1.16.1",
+    "socket.io": "^4.7.5"
   }
 }
