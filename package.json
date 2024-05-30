@@ -1,5 +1,5 @@
 {
-  "name": "DriftShare",
+  "name": "drift-share",
   "version": "1.0.0",
   "description": "Next Sharing Generation",
   "main": "index.html",
@@ -30,6 +30,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "bootstrap": "^4.4.1",
+    "espress": "0.0.0",
     "express": "^4.19.2",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.1",
