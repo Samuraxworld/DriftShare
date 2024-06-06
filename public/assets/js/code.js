@@ -69,16 +69,20 @@
       uid: receiverID,
       metadata: metadata
     });
+
     socket.on("fs-share", (data) => {
       // console.log('fs-share', data);
 
-      let chunck = buffer.slice(0, metadata.buffer_size);
+      let chunk = buffer.slice(0, metadata.buffer_size);
       buffer = buffer.slice(metadata.buffer_size, buffer.length);
       progressBar.innerHTML = `${Math.trunc(((metadata.total_buffer_size - buffer.length) / metadata.total_buffer_size) * 100)}%`;
-      if (chunck.length != 0) {
+      
+      if (chunk.length != 0) {
+        let binaryChunk = new Uint8Array(chunk);
+
         socket.emit("fs-raw", {
           uid: receiverID,
-          buffer: chunck
+          buffer: binaryChunk
         });
       }
     });
