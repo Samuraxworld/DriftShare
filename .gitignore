@@ -2,3 +2,5 @@ node_modules
 .jshintrc
 .DS_Store
 .jsbeautifyrc
+.env
+sample.js
