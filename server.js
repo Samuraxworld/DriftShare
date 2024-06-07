@@ -23,6 +23,7 @@ const client = new MongoClient(uri, {
     }
 });
 
+const { generateID } = require('./public/assets/js/utils.js');
 let sockets = {}; // Store socket IDs => socket objects
 
 async function run() {
@@ -39,25 +40,6 @@ async function run() {
 }
 db = run().catch(console.dir);
 
-async function generateID() {
-    let uid = `${Math.trunc(Math.random() * 999)}-${Math.trunc(Math.random() * 999)}-${Math.trunc(Math.random() * 9999)}`;
-
-    try {
-        await db.command({ ping: 1 });
-
-        let result = await db.collection("ids").findOne({ uid: uid });
-        if (result) {
-            return await generateID();
-        } else {
-            await db.collection("ids").insertOne({ uid: uid });
-            console.log("ID inserted : ", uid);
-            return uid;
-        }
-    } catch (err) {
-        console.error(err);
-        throw err;
-    }
-}
 
 app.use(express.static(path.join(__dirname, '/public')));
 
@@ -68,15 +50,19 @@ io.on("connection", (socket) => {
         console.log(err);
     });
 
-    socket.on('disconnect', () => {
-        console.log('user disconnected');
-        delete sockets[socket.customId];
+    socket.on('disconnect', async () => {
+        try {
+            let uid = socket.customId;
+            await db.collection('ids').deleteOne({ uid: uid });
+            delete sockets[socket.customId];
+        } catch (error) {
+            console.error('Error freeing ID:', error);
+        }
     });
 
     socket.on("generate-id", async () => {
         try {
-            let uid = await generateID();
-            console.log('uid', uid);
+            let uid = await generateID(db);
             io.to(socket.id).emit("id-generated", { id: uid });
             socket.customId = uid;
             sockets[uid] = socket;
