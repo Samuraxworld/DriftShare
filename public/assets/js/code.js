@@ -1,12 +1,13 @@
 (function () {
   console.log('code.js');
   let receiverID;
-  let joinID;
   const socket = io();
 
+  //generating id for room
   document.querySelector('#sender-start-connexion').addEventListener('click', () => {
-    socket.emit('generate-id');
+    let joinID;
 
+    socket.emit('generate-id');
     socket.on('id-generated', (data) => {
       joinID = data.id;
       document.getElementById('join-id').innerHTML = `
@@ -16,19 +17,9 @@
         uid: joinID
       });
     });
-
-    // joinID = generateID();
-    // document.getElementById('join-id').innerHTML = `
-    //   <span> ${joinID} </span>
-    //   `;
-    // socket.emit('sender-join', {
-    //   uid: joinID
-    // });
   });
 
   socket.on("init", (uid) => {
-    // console.log('init', uid);
-
     receiverID = uid;
     document.querySelector('.sender-form').classList.remove('active');
     document.querySelector('.fs-screen').classList.add('active');

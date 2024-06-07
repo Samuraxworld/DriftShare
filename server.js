@@ -44,8 +44,6 @@ db = run().catch(console.dir);
 app.use(express.static(path.join(__dirname, '/public')));
 
 io.on("connection", (socket) => {
-    // console.log('a user connected');
-
     socket.on('error', function (err) {
         console.log(err);
     });
