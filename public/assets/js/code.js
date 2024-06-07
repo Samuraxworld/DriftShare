@@ -3,24 +3,23 @@
   let receiverID;
   const socket = io();
 
-  function generateID() {
-    return `${Math.trunc(Math.random() * 999)}-${Math.trunc(Math.random() * 999)}-${Math.trunc(Math.random() * 9999)}`;
-  }
-
+  //generating id for room
   document.querySelector('#sender-start-connexion').addEventListener('click', () => {
-    let joinID = generateID();
-    document.getElementById('join-id').innerHTML = `
-      <span> ${joinID} </span>
-      `;
+    let joinID;
 
-    socket.emit('sender-join', {
-      uid: joinID
+    socket.emit('generate-id');
+    socket.on('id-generated', (data) => {
+      joinID = data.id;
+      document.getElementById('join-id').innerHTML = `
+        <span> ${joinID} </span>
+        `;
+      socket.emit('sender-join', {
+        uid: joinID
+      });
     });
   });
 
   socket.on("init", (uid) => {
-    // console.log('init', uid);
-
     receiverID = uid;
     document.querySelector('.sender-form').classList.remove('active');
     document.querySelector('.fs-screen').classList.add('active');
@@ -36,7 +35,7 @@
     let reader = new FileReader();
     reader.onload = function (e) {
       let buffer = new Uint8Array(reader.result); // e.target.result;
-      
+
       let fileItem = document.createElement('div');
       fileItem.classList.add('container');
       fileItem.classList.add('mb-2');
@@ -54,7 +53,7 @@
           </div>
       `;
       document.querySelector('.file-list').appendChild(fileItem);
-      
+
       shareFile({
         filename: file.name,
         total_buffer_size: buffer.length,
@@ -76,7 +75,7 @@
       let chunk = buffer.slice(0, metadata.buffer_size);
       buffer = buffer.slice(metadata.buffer_size, buffer.length);
       progressBar.innerHTML = `${Math.trunc(((metadata.total_buffer_size - buffer.length) / metadata.total_buffer_size) * 100)}%`;
-      
+
       if (chunk.length != 0) {
         let binaryChunk = new Uint8Array(chunk);
 
