@@ -15,8 +15,6 @@ require('dotenv').config();
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/?retryWrites=true&w=majority&appName=AtlasCluster`;
 let db;
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
     serverApi: {
         version: ServerApiVersion.v1,
@@ -25,31 +23,66 @@ const client = new MongoClient(uri, {
     }
 });
 
+let sockets = {}; // Store socket IDs => socket objects
+
 async function run() {
     try {
-        // Connect the client to the server	(optional starting in v4.7)
+        // Connect the client to the server
         await client.connect();
         db = await client.db(process.env.MONGO_DB_NAME);
         await db.command({ ping: 1 });
         await db.collection("ids").createIndex({ "uid": 1 }, { unique: true });
         console.log("Pinged your deployment. You successfully connected to MongoDB!");
     } finally {
-        // Ensures that the client will close when you finish/error
-        await client.close();
+        return db;
     }
 }
-run().catch(console.dir);
+db = run().catch(console.dir);
+
+async function generateID() {
+    let uid = `${Math.trunc(Math.random() * 999)}-${Math.trunc(Math.random() * 999)}-${Math.trunc(Math.random() * 9999)}`;
+
+    try {
+        await db.command({ ping: 1 });
+
+        let result = await db.collection("ids").findOne({ uid: uid });
+        if (result) {
+            return await generateID();
+        } else {
+            await db.collection("ids").insertOne({ uid: uid });
+            console.log("ID inserted : ", uid);
+            return uid;
+        }
+    } catch (err) {
+        console.error(err);
+        throw err;
+    }
+}
 
 app.use(express.static(path.join(__dirname, '/public')));
 
 io.on("connection", (socket) => {
     // console.log('a user connected');
+
     socket.on('error', function (err) {
         console.log(err);
     });
 
     socket.on('disconnect', () => {
         console.log('user disconnected');
+        delete sockets[socket.customId];
+    });
+
+    socket.on("generate-id", async () => {
+        try {
+            let uid = await generateID();
+            console.log('uid', uid);
+            io.to(socket.id).emit("id-generated", { id: uid });
+            socket.customId = uid;
+            sockets[uid] = socket;
+        } catch (error) {
+            console.error('Error generating ID:', error);
+        }
     });
 
     socket.on("sender-join", (data) => {
